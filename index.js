@@ -45,15 +45,20 @@ app.controller('myCtrl4', function($scope) {
 app.config(function($routeProvider) {
     $routeProvider
     .when("/", {
-        templateUrl : "./page/main.htm"
+        templateUrl : "/main.htm",
     })
-    .when("/red", {
-        templateUrl : "red.htm"
+    .when("/london", {
+        templateUrl : "london.htm",
+        controller : "londonCtrl"
     })
-    .when("/green", {
-        templateUrl : "green.htm"
-    })
-    .when("/blue", {
-        templateUrl : "blue.htm"
+    .when("/paris", {
+        templateUrl : "paris.htm",
+        controller : "parisCtrl"
     });
+}); 
+app.controller("londonCtrl", function ($scope) {
+    $scope.msg = "I love London";
+});
+app.controller("parisCtrl", function ($scope) {
+    $scope.msg = "I love Paris";
 });

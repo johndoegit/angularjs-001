@@ -1,10 +1,11 @@
 // Import stylesheets
 import './style.css'; 
 import './angular.js';
+import './angular_route.js'; 
 
 // Write Javascript code!
 
-var app = angular.module('myApp', []);
+var app = angular.module('myApp', ["ngRoute"]);
 
 app.controller('myCtrl', function($scope) {
   $scope.firstName = "John";
@@ -39,4 +40,20 @@ app.controller('myCtrl4', function($scope) {
         {model : "Fiat 500", color : "white"},
         {model : "Volvo XC90", color : "black"}
     ];
+});
+
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "./page/main.htm"
+    })
+    .when("/red", {
+        templateUrl : "red.htm"
+    })
+    .when("/green", {
+        templateUrl : "green.htm"
+    })
+    .when("/blue", {
+        templateUrl : "blue.htm"
+    });
 });

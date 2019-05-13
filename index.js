@@ -1,11 +1,29 @@
 // Import stylesheets
 import './style.css'; 
 import './angular.js';
-import './angular_route.js'; 
+import './angular_route.js';  
 
 // Write Javascript code!
 
 var app = angular.module('myApp', ["ngRoute"]);
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/london", {
+     template : "<h1>Main</h1><p>Click on the links to change this content</p>"
+    })
+ 
+    .when("/paris", {
+        template : "<h1>Main</h1><p>Click on the links to change this content</p>",
+        controller : "parisCtrl"
+    });
+}); 
+app.controller("londonCtrl", function ($scope) {
+    $scope.msg = "I love London";
+});
+app.controller("parisCtrl", function ($scope) {
+    $scope.msg = "I love Paris";
+});
+
 
 app.controller('myCtrl', function($scope) {
   $scope.firstName = "John";
@@ -42,23 +60,3 @@ app.controller('myCtrl4', function($scope) {
     ];
 });
 
-app.config(function($routeProvider) {
-    $routeProvider
-    .when("/", {
-        templateUrl : "/main.htm",
-    })
-    .when("/london", {
-        templateUrl : "london.htm",
-        controller : "londonCtrl"
-    })
-    .when("/paris", {
-        templateUrl : "paris.htm",
-        controller : "parisCtrl"
-    });
-}); 
-app.controller("londonCtrl", function ($scope) {
-    $scope.msg = "I love London";
-});
-app.controller("parisCtrl", function ($scope) {
-    $scope.msg = "I love Paris";
-});

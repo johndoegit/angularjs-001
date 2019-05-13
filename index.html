@@ -3,13 +3,7 @@
  
 
 <body ng-app="myApp" >  
-
-
-<p><a href="#/!">Main</a></p> 
-
-<a href="#!london">City 1</a>
-<a href="#!paris">City 2</a> 
-
+ 
 
 
 <!-- CONTROLLER 1 -->  
@@ -42,19 +36,25 @@ Full Name: {{firstName + " " + lastName}}
 
 <!-- CONTROLLER 4 --> 
 <div ng-controller="myCtrl4">
-<p>Select a car:</p>
+<p>Select a car:</p> 
 <select ng-model="selectedCar">
 <option ng-repeat="x in cars" value="{{x.model}}">{{x.model}}</option>
 </select>
 <h1>You selected: {{selectedCar}}</h1>
 </div>
      
- 
 
-
- 
-<div ng-view></div>
- 
+<!-- CONTROLLER 5 --> 
+<div  ng-controller="myCtrl5">
+  <ul>
+    <li ng-repeat="x in products">
+      {{x}}<span ng-click="removeItem($index)">&times;</span>
+    </li>
+  </ul>
+  <input ng-model="addMe">
+  <button ng-click="addItem()">Add</button>
+  <p>{{errortext}}</p>
+</div>
  
 </body>   
-</html>
+</html>   

@@ -1,1 +1,44 @@
-<div id="app"></div>
+<!DOCTYPE html>
+<html lang="en-US">
+<body ng-app="myApp" > 
+
+<!-- CONTROLLER 1 -->
+<div ng-controller="myCtrl">
+First Name: <input type="text" ng-model="firstName"><br>
+Last Name: <input type="text" ng-model="lastName"><br>
+<br>
+Full Name: {{firstName + " " + lastName}}
+</div>
+ 
+<!-- CONTROLLER 2 -->
+<div  ng-controller="myCtrl2">
+<ul>
+  <li ng-repeat="x in names">
+    {{ x.name + ', ' + x.country }}
+  </li>
+</ul>
+</div>
+
+<!-- CONTROLLER 3 -->
+<div ng-controller="myCtrl3">
+<p>Type a letter in the input field:</p>
+<p><input type="text" ng-model="test"></p>
+<ul>
+  <li ng-repeat="x in names | filter:test">
+     {{ x.name + ', ' + x.country }}
+  </li>
+</ul>
+</div> 
+
+<!-- CONTROLLER 4 --> 
+<div ng-controller="myCtrl4">
+<p>Select a car:</p>
+<select ng-model="selectedCar">
+<option ng-repeat="x in cars" value="{{x.model}}">{{x.model}}</option>
+</select>
+<h1>You selected: {{selectedCar}}</h1>
+</div>
+   
+     
+</body> 
+</html>
